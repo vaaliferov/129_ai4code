@@ -4,12 +4,12 @@
 #### Description
 The goal of this [competition](https://www.kaggle.com/competitions/AI4Code) was to understand the relationship between code and comments in Python notebooks. We were challenged to reconstruct the order of markdown cells in a given notebook based on the order of the code cells, demonstrating comprehension of which natural language references which code. Predictions were evaluated by the [Kendall tau correlation](https://en.wikipedia.org/wiki/Kendall_rank_correlation_coefficient) between predicted cell orders and ground truth cell orders accumulated across the entire collection of test set notebooks.
 
-#### Results: 35 / 1200, top 4% 🥳
+#### Results: 37 / 1200, top 4% 🥳
 Our team:
 [Valentin Aliferov](https://github.com/vaaliferov), 
 [Polina Roshchina](https://github.com/palinkapro), 
 [Milana Shhanukova](https://github.com/MilanaShhanukova)
-![lb](./images/lb_03.09.2022.png)
+![lb](./images/lb_16.09.2022.png)
 
 #### Solution
 The solution is basically an ensemble of 2 different models (regression-based and matching-based) which both predict the relative positions of markdown cells in a given notebook. The predictions are combined together using simple weighted average technique and then used to get the expected cell order. This solution is relatively light and fast. It takes ~1.5 hours to prepare the data, ~15 hours to train both models (on TPUs kindly provided by Kaggle), and also ~3.5 hours to make a submission (on GPU). We also managed to fit all the data in memory and switched to using tfrecords only for the matching model (starting from negative sampling of 5+ examples per markdown). This is our first experience with Tensorflow and Keras.
