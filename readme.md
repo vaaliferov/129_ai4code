@@ -30,7 +30,7 @@ This model is based on the idea of finding the best match for each individual ma
 
 ![match_train](./images/match_model_train.png)
 
-$$cosine\textunderscore similarity = \frac{A*B}{\|A\|*\|B\|}$$
+$$CosineSimilarity = \frac{A*B}{|A| |B|}$$
 
 $$margin = |R_A - R_P| - |R_A - R_N|$$
 
